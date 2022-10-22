@@ -1,0 +1,33 @@
+<table border = 1>
+
+<tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Recovery Community
+    </th>
+
+    <th></th>
+  </tr>
+
+  <%@recovery_communities.each do |a_group|%>
+
+  <tr>
+    <td>
+      <%= a_group.id %>
+    </td>
+
+    <td>
+      <%= a_group.group_name.capitalize %>
+    </td>
+
+    <td>
+      <a href="/community/<%= a_group.id %>">Show details</a>
+    </td>
+  </tr>
+
+<% end %>
+
+</table>

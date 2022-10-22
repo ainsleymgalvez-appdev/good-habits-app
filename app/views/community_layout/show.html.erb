@@ -1,0 +1,58 @@
+<h1><%= @c_info.group_name.capitalize %></h1>
+
+
+<dl>
+  <dt>Membership Count</dt>
+  <dd><%= Memberships.where({:community_id => @c_info.id}).count %></dd>
+
+  <dt>Post Count</dt>
+  <dd></dd>
+
+
+</dl>
+
+<h2>Members</h2>
+
+<table border = 1>
+
+<tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Username
+    </th>
+
+    <th>
+      Number of Posts
+    </th>
+
+    <th></th>
+  </tr>
+
+  <%@c_info.rollcall.each do |a_member|%>
+
+  <tr>
+    <td>
+      <%= a_member.user_id %>
+    </td>
+
+    
+    <td>
+      <% u = Users.where({:id => a_member.user_id}).at(0)%>
+      <%= u.username %>
+    </td>
+
+    <td>
+      
+    </td>
+
+    <td>
+    <a href="/members/<%= a_member.user_id %>">Show details</a>
+    </td>
+  </tr>
+
+<% end %>
+
+</table>
